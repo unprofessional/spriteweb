@@ -1,11 +1,120 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const inviteUrl =
+  'https://discord.com/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=PERMISSIONS_INT&scope=bot%20applications.commands';
+
+const features = [
+  { label: 'View and browse games and characters', free: true, premium: true },
+  { label: 'Join games and switch active context', free: true, premium: true },
+  { label: 'Dice rolling', free: true, premium: true },
+  { label: 'Create characters and stats', free: false, premium: true },
+  { label: 'Inventory management', free: false, premium: true },
+  { label: 'Game and campaign admin', free: false, premium: true },
+  { label: 'Auto thread bumping', free: false, premium: true },
+];
+
+const plans = [
+  {
+    name: 'Monthly',
+    price: '$3.00',
+    cadence: 'per month',
+    effective: '$3.00/mo',
+  },
+  {
+    name: 'Quarterly',
+    price: '$7.99',
+    cadence: 'per quarter',
+    effective: 'about $2.66/mo',
+    featured: true,
+  },
+  {
+    name: 'Annual',
+    price: '$27.99',
+    cadence: 'per year',
+    effective: 'about $2.33/mo',
+  },
+];
+
+const includedLabel = 'Included';
+const unavailableLabel = 'Premium only';
 ---
 
 <Base title="Pricing" description="SPRITEbot subscription tiers and server-wide premium access.">
-  <section class="page-hero">
-    <p class="eyebrow">Coming in Pass 2</p>
-    <h1>Pricing</h1>
-    <p>Free and premium tier details are planned next.</p>
+  <section class="page-hero pricing-hero">
+    <p class="eyebrow">Server-wide premium</p>
+    <h1>Simple pricing for the whole table.</h1>
+    <p>
+      SPRITEbot premium unlocks creation, campaign administration, inventory, and thread
+      automation for an entire Discord server. One subscription covers every GM and player there.
+    </p>
+    <div class="notice-strip">
+      <strong>Checkout is coming soon.</strong>
+      <span>Pricing is published now so server admins can plan before Stripe goes live.</span>
+    </div>
+  </section>
+
+  <section class="pricing-section" aria-labelledby="plans-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Plans</p>
+      <h2 id="plans-heading">Choose a billing rhythm when premium opens.</h2>
+    </div>
+    <div class="pricing-grid">
+      {
+        plans.map((plan) => (
+          <article class={`price-card ${plan.featured ? 'featured' : ''}`}>
+            {plan.featured && <p class="card-kicker">Good middle path</p>}
+            <h3>{plan.name}</h3>
+            <p class="price">
+              <span>{plan.price}</span>
+              {plan.cadence}
+            </p>
+            <p class="effective">{plan.effective}</p>
+            <a class="button secondary" href={inviteUrl}>Add to Discord</a>
+          </article>
+        ))
+      }
+    </div>
+    <p class="pricing-note">
+      All plans are per server, not per user. Premium applies to the entire Discord server once
+      payment support is available.
+    </p>
+  </section>
+
+  <section class="comparison-section" aria-labelledby="comparison-heading">
+    <div class="section-heading">
+      <p class="eyebrow">Feature access</p>
+      <h2 id="comparison-heading">Free players can browse and roll. Premium servers can create.</h2>
+    </div>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Free</th>
+            <th scope="col">Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            features.map((feature) => (
+              <tr>
+                <th scope="row">{feature.label}</th>
+                <td>
+                  <span class={feature.free ? 'status included' : 'status unavailable'}>
+                    {feature.free ? includedLabel : unavailableLabel}
+                  </span>
+                </td>
+                <td>
+                  <span class={feature.premium ? 'status included' : 'status unavailable'}>
+                    {feature.premium ? includedLabel : unavailableLabel}
+                  </span>
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
   </section>
 </Base>
