@@ -3,6 +3,9 @@ import Base from '../layouts/Base.astro';
 
 const inviteUrl =
   'https://discord.com/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=PERMISSIONS_INT&scope=bot%20applications.commands';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 
 const features = [
   {
@@ -46,12 +49,12 @@ const features = [
       </p>
       <div class="hero-actions" aria-label="Primary actions">
         <a class="button primary" href={inviteUrl}>Add to Discord</a>
-        <a class="button secondary" href={`${import.meta.env.BASE_URL}pricing/`}>View Pricing</a>
+        <a class="button secondary" href={`${basePath}pricing/`}>View Pricing</a>
       </div>
     </div>
     <div class="hero-panel" aria-label="SPRITEbot feature preview">
       <div class="bot-card">
-        <img src={`${import.meta.env.BASE_URL}assets/sprite-mark.svg`} alt="" width="72" height="72" />
+        <img src={`${basePath}assets/sprite-mark.svg`} alt="" width="72" height="72" />
         <div>
           <strong>SPRITEbot</strong>
           <span>/ic Mira checks the warded door...</span>
