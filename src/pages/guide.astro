@@ -1,11 +1,254 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const guideSections = [
+  { href: '#players', label: 'Players' },
+  { href: '#characters', label: 'Characters' },
+  { href: '#roleplay', label: 'Roleplay' },
+  { href: '#inventory', label: 'Inventory' },
+  { href: '#dice', label: 'Dice' },
+  { href: '#gms', label: 'GMs' },
+  { href: '#troubleshooting', label: 'Troubleshooting' },
+];
+
+const playerSteps = [
+  'Join a public game with /join-game.',
+  'Pick the game from the menu.',
+  'Create a character with /create-character.',
+  'Fill in the required character fields.',
+  'Submit the character draft.',
+  'Use /switch-character if you have more than one character.',
+  'Use /ic in a roleplay channel when messages should post as your character.',
+  'Use /ooc in that channel when you want normal Discord messages again.',
+];
+
+const characterFields = [
+  'Name',
+  'Bio',
+  'Avatar URL',
+  'RP Display Name',
+  'RP Display Avatar URL',
+  'Game-specific fields such as HP, Strength, Class, Skills, or Notes',
+];
+
+const troubleshooting = [
+  'If /create-character says you have not joined a game, run /join-game first.',
+  'If a game has no stat fields, ask the GM to finish setting up the game fields.',
+  'If roleplay proxying does not start after /ic, check that you are typing in the same channel.',
+  'If proxying says you have no active character, run /switch-character.',
+  'If a proxied post has the wrong name or avatar, update RP Display Name or RP Display Avatar URL.',
+  'If /ic-edit or /ic-delete cannot find the message, copy the webhook message Spritebot posted.',
+  'If /ic-edit or /ic-delete says the message is not yours, it was proxied by another Discord account.',
+];
 ---
 
 <Base title="Guide" description="A quick start guide for using SPRITEbot in Discord.">
-  <section class="page-hero">
-    <p class="eyebrow">Coming in Pass 3</p>
+  <section class="page-hero guide-hero">
+    <p class="eyebrow">Quick start</p>
     <h1>Quick Start Guide</h1>
-    <p>Player and GM setup notes will land here after the landing and pricing pages.</p>
+    <p>
+      The short version of using SPRITEbot in Discord: join a game, make a character, then
+      roleplay, roll dice, and manage inventory without leaving the server.
+    </p>
+    <nav class="guide-jump-nav" aria-label="Guide sections">
+      {
+        guideSections.map((section) => (
+          <a href={section.href}>{section.label}</a>
+        ))
+      }
+    </nav>
   </section>
+
+  <div class="guide-layout">
+    <aside class="guide-sidebar" aria-label="Guide contents">
+      <p>On this page</p>
+      {
+        guideSections.map((section) => (
+          <a href={section.href}>{section.label}</a>
+        ))
+      }
+    </aside>
+
+    <div class="guide-content">
+      <section id="players" class="guide-section">
+        <p class="eyebrow">For players</p>
+        <h2>Join a game and start playing.</h2>
+        <ol class="step-list">
+          {playerSteps.map((step) => <li>{step}</li>)}
+        </ol>
+        <div class="guide-callout">
+          <strong>Your active game matters.</strong>
+          <span>
+            It controls which characters, fields, and sheet details Spritebot uses for you. Use
+            <code>/switch-game</code> if you are in more than one game.
+          </span>
+        </div>
+      </section>
+
+      <section id="characters" class="guide-section">
+        <p class="eyebrow">Characters</p>
+        <h2>Create, view, and switch character sheets.</h2>
+        <p>
+          Run <code>/create-character</code> after joining a game. Spritebot opens an interactive
+          draft where you pick a field, fill in the modal, and continue until the required fields
+          are complete.
+        </p>
+        <div class="guide-card-grid">
+          <article class="guide-card">
+            <h3>Common fields</h3>
+            <ul>
+              {characterFields.map((field) => <li>{field}</li>)}
+            </ul>
+          </article>
+          <article class="guide-card">
+            <h3>Useful commands</h3>
+            <ul>
+              <li><code>/view-character</code> shows your active sheet.</li>
+              <li><code>/switch-character</code> changes your active character.</li>
+              <li><code>/list-characters</code> browses public characters in the current game.</li>
+            </ul>
+          </article>
+        </div>
+        <details class="guide-details">
+          <summary>RP display name and avatar</summary>
+          <p>
+            RP display fields control webhook roleplay posts. They can be shorter names, titles,
+            disguises, or alternate avatar URLs. If left blank, Spritebot falls back to your normal
+            character name and avatar.
+          </p>
+          <p>
+            To edit them later, run <code>/view-character</code>, use the edit button, choose the
+            RP display field, and submit the new value.
+          </p>
+        </details>
+      </section>
+
+      <section id="roleplay" class="guide-section">
+        <p class="eyebrow">Roleplay proxy</p>
+        <h2>Post as your active character.</h2>
+        <p>
+          Use <code>/ic</code> in a channel to turn on in-character proxy mode for yourself in that
+          channel. Use <code>/ooc</code> in the same channel to turn it off.
+        </p>
+        <div class="flow-list" aria-label="What happens while in character">
+          <span>Write a normal message</span>
+          <span>Spritebot reposts through a webhook</span>
+          <span>Your original message is deleted after success</span>
+        </div>
+        <details class="guide-details">
+          <summary>Long posts, edits, and deletes</summary>
+          <p>
+            Spritebot supports roleplay posts up to 4000 characters. Longer Discord messages can be
+            split into multiple proxied messages, and text attachments named <code>message.txt</code>
+            can be proxied when they fit the supported limit.
+          </p>
+          <p>
+            Use <code>/ic-edit message:&lt;message id or message link&gt;</code> or right-click your
+            proxied message and choose <code>Apps</code>, then <code>Edit IC Message</code>. Use
+            <code>/ic-delete message:&lt;message id or message link&gt;</code> to delete one of your
+            own proxied messages.
+          </p>
+        </details>
+        <details class="guide-details">
+          <summary>Copying a message link or ID</summary>
+          <p>
+            On desktop Discord, right-click the proxied message and choose
+            <code>Copy Message Link</code>. For raw IDs, enable Developer Mode in User Settings,
+            then right-click the message and choose <code>Copy Message ID</code>.
+          </p>
+        </details>
+      </section>
+
+      <section id="inventory" class="guide-section">
+        <p class="eyebrow">Inventory</p>
+        <h2>Manage items for the active character.</h2>
+        <p>
+          Run <code>/inventory</code> to view and manage your active character's items. You can also
+          open inventory from <code>/view-character</code>. Large inventories use separate paginated
+          views so character sheets stay readable.
+        </p>
+        <div class="guide-card-grid">
+          <article class="guide-card">
+            <h3>Add items</h3>
+            <p>
+              Open inventory, choose <code>Add Item</code>, enter the name, and optionally add type,
+              quantity, and description.
+            </p>
+          </article>
+          <article class="guide-card">
+            <h3>Edit details</h3>
+            <p>
+              Pick an item from the inventory dropdown, choose <code>View/Edit Item</code>, then
+              update the modal fields.
+            </p>
+          </article>
+          <article class="guide-card">
+            <h3>Equip or delete</h3>
+            <p>
+              Select an item, then choose <code>Equip Item</code>, <code>Unequip Item</code>, or
+              <code>Delete Item</code>. Use <code>Delete All</code> carefully.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="dice" class="guide-section">
+        <p class="eyebrow">Dice</p>
+        <h2>Roll dice in strict notation.</h2>
+        <p>
+          Use <code>/roll dice:3d6</code> for a quick result. Spritebot supports rolls from
+          <code>1d2</code> through <code>15d999</code>, including uppercase notation like
+          <code>2D20</code>.
+        </p>
+        <div class="code-sample">
+          <span>Example result</span>
+          <code>Robin Sage rolled 4d20: [14, 14, 13, 1] = 42</code>
+        </div>
+        <p>
+          Rolls use cryptographic local randomness, which is suitable for normal table play but is
+          not publicly verifiable like a shared-seed system.
+        </p>
+      </section>
+
+      <section id="gms" class="guide-section">
+        <p class="eyebrow">For GMs</p>
+        <h2>Create games, configure fields, and keep sessions moving.</h2>
+        <ol class="step-list">
+          <li>Run <code>/create-game name:&lt;name&gt; description:&lt;description&gt;</code>.</li>
+          <li>Define game-specific character fields with the buttons Spritebot shows.</li>
+          <li>Add fields players should fill in, such as HP, Class, Strength, Skills, or Notes.</li>
+          <li>Publish the game when players should be able to join it.</li>
+          <li>Use <code>/view-game</code> later to manage fields or publish status.</li>
+        </ol>
+        <details class="guide-details">
+          <summary>Voice transcription</summary>
+          <p>
+            GMs can use <code>/transcribe start</code> with a voice channel and output text channel.
+            Spritebot listens during the session and posts one raw transcript file when stopped.
+          </p>
+          <p>
+            Use <code>/transcribe status</code> to check progress and
+            <code>/transcribe stop</code> to end the session. Transcripts include session metadata,
+            timing, participant count, segment count, and raw timestamped lines.
+          </p>
+        </details>
+        <details class="guide-details">
+          <summary>Thread bumping</summary>
+          <p>
+            If thread bumping is configured, use <code>/bump-thread</code> actions such as
+            <code>add</code>, <code>remove</code>, <code>list</code>, <code>bump-now</code>,
+            <code>set-note</code>, and <code>set-interval</code> to keep important threads active.
+          </p>
+        </details>
+      </section>
+
+      <section id="troubleshooting" class="guide-section">
+        <p class="eyebrow">Troubleshooting</p>
+        <h2>When something feels stuck.</h2>
+        <ul class="troubleshooting-list">
+          {troubleshooting.map((item) => <li>{item}</li>)}
+        </ul>
+      </section>
+    </div>
+  </div>
 </Base>
