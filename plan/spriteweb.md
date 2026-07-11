@@ -40,23 +40,23 @@ Hero section with:
 
 Feature comparison table:
 
-| Feature | Free | Premium |
-|---------|------|---------|
-| View/browse games & characters | ✅ | ✅ |
-| Join games, switch context | ✅ | ✅ |
-| Dice rolling | ✅ | ✅ |
-| Create characters & stats | ❌ | ✅ |
-| Inventory management | ❌ | ✅ |
-| Game/campaign admin | ❌ | ✅ |
-| Auto thread bumping | ❌ | ✅ |
+| Feature                        | Free | Premium |
+| ------------------------------ | ---- | ------- |
+| View/browse games & characters | ✅   | ✅      |
+| Join games, switch context     | ✅   | ✅      |
+| Dice rolling                   | ✅   | ✅      |
+| Create characters & stats      | ❌   | ✅      |
+| Inventory management           | ❌   | ✅      |
+| Game/campaign admin            | ❌   | ✅      |
+| Auto thread bumping            | ❌   | ✅      |
 
 Pricing cards:
 
-| Plan | Price | Effective Monthly |
-|------|-------|-------------------|
-| Monthly | $3.00/mo | $3.00 |
-| Quarterly | $7.99/quarter | ~$2.66 |
-| Annual | $27.99/year | ~$2.33 |
+| Plan      | Price         | Effective Monthly |
+| --------- | ------------- | ----------------- |
+| Monthly   | $3.00/mo      | $3.00             |
+| Quarterly | $7.99/quarter | ~$2.66            |
+| Annual    | $27.99/year   | ~$2.33            |
 
 - All plans are **per server**, not per user
 - One subscription unlocks premium for the entire server
