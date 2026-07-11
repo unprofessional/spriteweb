@@ -173,11 +173,11 @@ spriteweb/
 Discord OAuth2 bot authorization URL format:
 
 ```
-https://discord.com/oauth2/authorize?client_id=BOT_CLIENT_ID&permissions=PERMISSIONS_INT&scope=bot%20applications.commands
+https://discord.com/oauth2/authorize?client_id=1398118069771173978&permissions=294745402368&scope=bot%20applications.commands
 ```
 
-- `BOT_CLIENT_ID`: SPRITEbot's Discord application ID
-- `permissions`: calculated from required permissions (manage webhooks, send messages, manage messages, etc.)
+- `BOT_CLIENT_ID`: `1398118069771173978`
+- `permissions`: `294745402368`, calculated from required permissions (manage webhooks, send messages, manage messages, threads, voice connect/speak, etc.)
 - `scope`: `bot` + `applications.commands`
 
 The invite button on the landing page will use this URL directly. No backend needed.
@@ -197,6 +197,6 @@ The invite button on the landing page will use this URL directly. No backend nee
 ## Open Questions
 
 - [ ] Custom domain? (e.g. `spritebot.gg`, `sprite.gg`, or just use `unprofessional.github.io/spriteweb`)
-- [ ] Bot client ID + permissions integer for the invite URL (mads to provide)
+- [x] Bot client ID + permissions integer for the invite URL
 - [ ] Any specific branding/color palette beyond "dark theme, Discord-adjacent"?
 - [ ] Screenshots or GIFs of the bot in action for the landing page?
