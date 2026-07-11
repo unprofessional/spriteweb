@@ -53,12 +53,12 @@ spriteweb/
 
 ## Pages
 
-| Route       | Purpose                                      |
-| ----------- | -------------------------------------------- |
-| `/`         | Landing page — features, invite button       |
-| `/pricing`  | Subscription tiers, free vs premium table    |
-| `/guide`    | Quick start guide for players and GMs        |
-| `/legal`    | Terms & privacy stub                         |
+| Route      | Purpose                                   |
+| ---------- | ----------------------------------------- |
+| `/`        | Landing page — features, invite button    |
+| `/pricing` | Subscription tiers, free vs premium table |
+| `/guide`   | Quick start guide for players and GMs     |
+| `/legal`   | Terms & privacy stub                      |
 
 ---
 
@@ -120,12 +120,12 @@ Astro has a built-in GitHub Pages integration:
 
 ```js
 // astro.config.mjs
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: 'https://unprofessional.github.io',
-  base: '/spriteweb',
-  output: 'static',
+  site: "https://unprofessional.github.io",
+  base: "/spriteweb",
+  output: "static",
 });
 ```
 
