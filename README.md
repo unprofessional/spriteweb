@@ -21,7 +21,7 @@ npm run build    # static build to dist/
 
 ## Deployment
 
-Pushes to `main` auto-deploy to GitHub Pages via GitHub Actions.
+Pushes to `master` auto-deploy to GitHub Pages via GitHub Actions.
 
 ## Plan
 
