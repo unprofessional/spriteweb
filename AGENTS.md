@@ -14,7 +14,7 @@ For implementation plans, see `plan/`.
 - **Framework:** Astro (static output mode, no SSR)
 - **Styling:** Vanilla CSS (no Tailwind, no component libraries)
 - **Hosting:** GitHub Pages
-- **CI/CD:** GitHub Actions (build on push to `main`, deploy to Pages)
+- **CI/CD:** GitHub Actions (build on push to `master`, deploy to Pages)
 
 ### Design Principles
 
@@ -81,8 +81,8 @@ spriteweb/
 
 - Branch from `develop`: `feature/<short-name>`
 - Commits: imperative present tense ("Add pricing page with tier cards")
-- Deploy branch: `main` (triggers GitHub Actions deploy)
-- Push to `develop` for review before merging to `main`.
+- Deploy branch: `master` (triggers GitHub Actions deploy)
+- Push to `develop` for review before merging to `master`.
 
 ### Astro Components
 
@@ -131,7 +131,7 @@ export default defineConfig({
 
 ### GitHub Actions
 
-Deploy workflow triggers on push to `main`:
+Deploy workflow triggers on push to `master`:
 
 1. Checkout → Install → Build → Deploy to Pages
 

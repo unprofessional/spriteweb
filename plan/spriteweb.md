@@ -109,7 +109,7 @@ Placeholder page. Will need real content before Stripe goes live:
 ### Build & Deploy
 
 - `astro build` → static output to `dist/`
-- GitHub Actions workflow: on push to `main`, build and deploy to GitHub Pages
+- GitHub Actions workflow: on push to `master`, build and deploy to GitHub Pages
 - Custom domain: optional (can use `unprofessional.github.io/spriteweb` or a custom domain later)
 
 ### Project Structure
