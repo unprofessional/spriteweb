@@ -7,6 +7,7 @@ const guideSections = [
   { href: '#roleplay', label: 'Roleplay' },
   { href: '#inventory', label: 'Inventory' },
   { href: '#dice', label: 'Dice' },
+  { href: '#transcription', label: 'Transcription' },
   { href: '#gms', label: 'GMs' },
   { href: '#troubleshooting', label: 'Troubleshooting' },
 ];
@@ -39,6 +40,7 @@ const troubleshooting = [
   'If a proxied post has the wrong name or avatar, update RP Display Name or RP Display Avatar URL.',
   'If /ic-edit or /ic-delete cannot find the message, copy the webhook message Spritebot posted.',
   'If /ic-edit or /ic-delete says the message is not yours, it was proxied by another Discord account.',
+  'If /restore-character does not show a character, check that you are in its original server and active game.',
 ];
 ---
 
@@ -106,6 +108,9 @@ const troubleshooting = [
               <li><code>/view-character</code> shows your active sheet.</li>
               <li><code>/switch-character</code> changes your active character.</li>
               <li><code>/list-characters</code> browses public characters in the current game.</li>
+              <li>
+                <code>/restore-character</code> recovers a character for up to 30 days after deletion.
+              </li>
             </ul>
           </article>
         </div>
@@ -121,6 +126,13 @@ const troubleshooting = [
             RP display field, and submit the new value.
           </p>
         </details>
+        <div class="guide-callout">
+          <strong>Deleted a character by mistake?</strong>
+          <span>
+            Run <code>/restore-character</code> within 30 days while you are in the same server and
+            active game. Restored characters return as private so you can review them first.
+          </span>
+        </div>
       </section>
 
       <section id="roleplay" class="guide-section">
@@ -146,7 +158,13 @@ const troubleshooting = [
             Use <code>/ic-edit message:&lt;message id or message link&gt;</code> or right-click your
             proxied message and choose <code>Apps</code>, then <code>Edit IC Message</code>. Use
             <code>/ic-delete message:&lt;message id or message link&gt;</code> to delete one of your
-            own proxied messages.
+            own proxied messages, or right-click it and choose <code>Apps</code>, then
+            <code>Delete IC Message</code>. Spritebot only allows you to edit or delete messages
+            proxied by your own Discord account.
+          </p>
+          <p>
+            Each chunk of a split roleplay post is a separate Discord message. Edit the specific
+            chunk you want to change, or delete each chunk separately.
           </p>
         </details>
         <details class="guide-details">
@@ -210,6 +228,40 @@ const troubleshooting = [
         </p>
       </section>
 
+      <section id="transcription" class="guide-section">
+        <p class="eyebrow">Voice transcription</p>
+        <h2>Capture a raw session transcript.</h2>
+        <p>
+          GMs can run
+          <code>/transcribe start voice-channel:&lt;voice channel&gt; text-channel:&lt;text channel&gt;</code>
+          to begin. Spritebot listens without posting live updates, then attaches one raw
+          <code>.txt</code> transcript to the chosen text channel when the session ends.
+        </p>
+        <div class="guide-card-grid">
+          <article class="guide-card">
+            <h3>Check progress</h3>
+            <p>
+              Run <code>/transcribe status</code> to see the channels, participant count, and number
+              of speech segments transcribed so far.
+            </p>
+          </article>
+          <article class="guide-card">
+            <h3>Finish the session</h3>
+            <p>
+              Run <code>/transcribe stop</code>. Spritebot finishes in-progress work and posts the
+              timestamped transcript. It also stops automatically if everyone leaves voice.
+            </p>
+          </article>
+        </div>
+        <div class="guide-callout">
+          <strong>Transcription is best-effort.</strong>
+          <span>
+            The output is intentionally raw and may mishear names, accents, overlapping speakers,
+            background noise, or Discord audio glitches.
+          </span>
+        </div>
+      </section>
+
       <section id="gms" class="guide-section">
         <p class="eyebrow">For GMs</p>
         <h2>Create games, configure fields, and keep sessions moving.</h2>
@@ -220,18 +272,6 @@ const troubleshooting = [
           <li>Publish the game when players should be able to join it.</li>
           <li>Use <code>/view-game</code> later to manage fields or publish status.</li>
         </ol>
-        <details class="guide-details">
-          <summary>Voice transcription</summary>
-          <p>
-            GMs can use <code>/transcribe start</code> with a voice channel and output text channel.
-            Spritebot listens during the session and posts one raw transcript file when stopped.
-          </p>
-          <p>
-            Use <code>/transcribe status</code> to check progress and
-            <code>/transcribe stop</code> to end the session. Transcripts include session metadata,
-            timing, participant count, segment count, and raw timestamped lines.
-          </p>
-        </details>
         <details class="guide-details">
           <summary>Thread bumping</summary>
           <p>
