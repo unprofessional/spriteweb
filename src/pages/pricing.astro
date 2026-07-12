@@ -16,6 +16,15 @@ const features = [
   { label: 'Auto thread bumping', free: false, premium: true },
 ];
 
+const plans = [
+  {
+    name: 'Premium',
+    price: '$3.99',
+    cadence: 'per month',
+    effective: '$3.99/mo via Discord',
+  },
+];
+
 const includedLabel = 'Included';
 const unavailableLabel = 'Premium only';
 ---
@@ -31,29 +40,36 @@ const unavailableLabel = 'Premium only';
     </p>
     <div class="notice-strip">
       <strong>Subscriptions live in Discord.</strong>
-      <span>Run <code>/subscribe</code> in your server to see its status and current offer.</span>
+      <span>
+        Run <code>/subscribe</code> in any server with SPRITEbot to view or manage its subscription.
+      </span>
     </div>
   </section>
 
   <section class="pricing-section" aria-labelledby="plans-heading">
     <div class="section-heading">
-      <p class="eyebrow">Premium</p>
-      <h2 id="plans-heading">Upgrade the server where your group already plays.</h2>
+      <p class="eyebrow">Plans</p>
+      <h2 id="plans-heading">One plan. Whole server.</h2>
     </div>
     <div class="pricing-grid">
-      <article class="price-card featured">
-        <p class="card-kicker">Discord Premium App</p>
-        <h3>SPRITEbot Premium</h3>
-        <p>
-          Use <code>/subscribe</code> in Discord to view or manage the subscription for the current
-          server. Discord displays the current price before you subscribe.
-        </p>
-        <a class="button secondary" href={inviteUrl}>Add to Discord</a>
-      </article>
+      {
+        plans.map((plan) => (
+          <article class="price-card">
+            <p class="card-kicker">Discord Premium App</p>
+            <h3>{plan.name}</h3>
+            <p class="price">
+              <span>{plan.price}</span>
+              {plan.cadence}
+            </p>
+            <p class="effective">{plan.effective}</p>
+            <a class="button secondary" href={inviteUrl}>Add to Discord</a>
+          </article>
+        ))
+      }
     </div>
     <p class="pricing-note">
-      Access is guild-scoped: an active Discord entitlement unlocks the Premium feature bundle for
-      the server, while every server keeps the free core browsing and dice tools.
+      Access is guild-scoped: one subscription covers every member, while every server keeps the
+      free core browsing and dice tools.
     </p>
   </section>
 
