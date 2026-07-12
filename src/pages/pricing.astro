@@ -9,9 +9,10 @@ const features = [
   { label: 'Join games and switch active context', free: true, premium: true },
   { label: 'Dice rolling', free: true, premium: true },
   { label: 'Create characters and stats', free: false, premium: true },
+  { label: 'Roleplay proxying and message editing', free: false, premium: true },
+  { label: 'Restore recently deleted characters', free: false, premium: true },
   { label: 'Inventory management', free: false, premium: true },
   { label: 'Game and campaign admin', free: false, premium: true },
-  { label: 'In-character roleplay with webhook proxying', free: false, premium: true },
   { label: 'Auto thread bumping', free: false, premium: true },
 ];
 
@@ -28,18 +29,19 @@ const includedLabel = 'Included';
 const unavailableLabel = 'Premium only';
 ---
 
-<Base title="Pricing" description="SPRITEbot subscription tiers and server-wide premium access.">
+<Base title="Pricing" description="SPRITEbot server-wide premium access through Discord.">
   <section class="page-hero pricing-hero">
     <p class="eyebrow">Server-wide premium</p>
-    <h1>Simple pricing for the whole table.</h1>
+    <h1>Premium access for the whole table.</h1>
     <p>
-      SPRITEbot premium unlocks creation, campaign administration, inventory, and thread
-      automation for an entire Discord server. One subscription covers every GM and player there.
+      SPRITEbot premium unlocks character creation, campaign administration, inventory, thread
+      automation, and roleplay proxying for an entire Discord server. One subscription covers every
+      GM and player there.
     </p>
     <div class="notice-strip">
+      <strong>Subscriptions live in Discord.</strong>
       <span>
-        Subscribe directly through Discord using the `/subscribe` command in any server with
-        SPRITEbot.
+        Run <code>/subscribe</code> in any server with SPRITEbot to view or manage its subscription.
       </span>
     </div>
   </section>
@@ -53,6 +55,7 @@ const unavailableLabel = 'Premium only';
       {
         plans.map((plan) => (
           <article class="price-card">
+            <p class="card-kicker">Discord Premium App</p>
             <h3>{plan.name}</h3>
             <p class="price">
               <span>{plan.price}</span>
@@ -65,7 +68,8 @@ const unavailableLabel = 'Premium only';
       }
     </div>
     <p class="pricing-note">
-      All plans are per server, not per user. One subscription covers every member.
+      Access is guild-scoped: one subscription covers every member, while every server keeps the
+      free core browsing and dice tools.
     </p>
   </section>
 
