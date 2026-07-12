@@ -9,75 +9,51 @@ const features = [
   { label: 'Join games and switch active context', free: true, premium: true },
   { label: 'Dice rolling', free: true, premium: true },
   { label: 'Create characters and stats', free: false, premium: true },
+  { label: 'Roleplay proxying and message editing', free: false, premium: true },
+  { label: 'Restore recently deleted characters', free: false, premium: true },
   { label: 'Inventory management', free: false, premium: true },
   { label: 'Game and campaign admin', free: false, premium: true },
   { label: 'Auto thread bumping', free: false, premium: true },
-];
-
-const plans = [
-  {
-    name: 'Monthly',
-    price: '$3.00',
-    cadence: 'per month',
-    effective: '$3.00/mo',
-  },
-  {
-    name: 'Quarterly',
-    price: '$7.99',
-    cadence: 'per quarter',
-    effective: 'about $2.66/mo',
-    featured: true,
-  },
-  {
-    name: 'Annual',
-    price: '$27.99',
-    cadence: 'per year',
-    effective: 'about $2.33/mo',
-  },
 ];
 
 const includedLabel = 'Included';
 const unavailableLabel = 'Premium only';
 ---
 
-<Base title="Pricing" description="SPRITEbot subscription tiers and server-wide premium access.">
+<Base title="Pricing" description="SPRITEbot server-wide premium access through Discord.">
   <section class="page-hero pricing-hero">
     <p class="eyebrow">Server-wide premium</p>
-    <h1>Simple pricing for the whole table.</h1>
+    <h1>Premium access for the whole table.</h1>
     <p>
-      SPRITEbot premium unlocks creation, campaign administration, inventory, and thread
-      automation for an entire Discord server. One subscription covers every GM and player there.
+      SPRITEbot premium unlocks character creation, campaign administration, inventory, thread
+      automation, and roleplay proxying for an entire Discord server. One subscription covers every
+      GM and player there.
     </p>
     <div class="notice-strip">
-      <strong>Checkout is coming soon.</strong>
-      <span>Pricing is published now so server admins can plan before Stripe goes live.</span>
+      <strong>Subscriptions live in Discord.</strong>
+      <span>Run <code>/subscribe</code> in your server to see its status and current offer.</span>
     </div>
   </section>
 
   <section class="pricing-section" aria-labelledby="plans-heading">
     <div class="section-heading">
-      <p class="eyebrow">Plans</p>
-      <h2 id="plans-heading">Choose a billing rhythm when premium opens.</h2>
+      <p class="eyebrow">Premium</p>
+      <h2 id="plans-heading">Upgrade the server where your group already plays.</h2>
     </div>
     <div class="pricing-grid">
-      {
-        plans.map((plan) => (
-          <article class={`price-card ${plan.featured ? 'featured' : ''}`}>
-            {plan.featured && <p class="card-kicker">Good middle path</p>}
-            <h3>{plan.name}</h3>
-            <p class="price">
-              <span>{plan.price}</span>
-              {plan.cadence}
-            </p>
-            <p class="effective">{plan.effective}</p>
-            <a class="button secondary" href={inviteUrl}>Add to Discord</a>
-          </article>
-        ))
-      }
+      <article class="price-card featured">
+        <p class="card-kicker">Discord Premium App</p>
+        <h3>SPRITEbot Premium</h3>
+        <p>
+          Use <code>/subscribe</code> in Discord to view or manage the subscription for the current
+          server. Discord displays the current price before you subscribe.
+        </p>
+        <a class="button secondary" href={inviteUrl}>Add to Discord</a>
+      </article>
     </div>
     <p class="pricing-note">
-      All plans are per server, not per user. Premium applies to the entire Discord server once
-      payment support is available.
+      Access is guild-scoped: an active Discord entitlement unlocks the Premium feature bundle for
+      the server, while every server keeps the free core browsing and dice tools.
     </p>
   </section>
 
