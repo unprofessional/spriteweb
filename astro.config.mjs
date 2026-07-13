@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://unprofessional.github.io",
-  base: "/spriteweb",
+  site: "https://sprite.devcru.org",
+  base: "/",
   output: "static",
 });
