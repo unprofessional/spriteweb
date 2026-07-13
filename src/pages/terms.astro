@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+
+const effectiveDate = 'July 13, 2026';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Base title="Terms of Service" description="SPRITEbot terms of service.">
+  <section class="page-hero legal-hero">
+    <p class="eyebrow">Terms of Service</p>
+    <h1>Terms of Service</h1>
+    <p>Effective {effectiveDate}</p>
+  </section>
+
+  <div class="legal-content">
+    <section class="policy-section">
+      <h2>Agreement</h2>
+      <p>
+        These Terms of Service ("Terms") govern your use of SPRITEbot ("the Bot"), a Discord
+        application operated by the SPRITEbot team ("we," "us," "our"). By using the Bot, you
+        agree to these Terms. If you do not agree, do not use the Bot.
+      </p>
+      <p>
+        These Terms are between you and us. They do not replace, modify, or override
+        <a href="https://discord.com/terms">Discord's Terms of Service</a> or
+        <a href="https://discord.com/guidelines">Community Guidelines</a>, which also apply to
+        your use of the Bot.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Eligibility</h2>
+      <p>
+        You must meet Discord's minimum age requirement (13 years or the minimum age in your
+        country, whichever is higher) to use the Bot. By using SPRITEbot, you confirm that you
+        meet this requirement.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Acceptable Use</h2>
+      <p>You may not use the Bot to submit, distribute, or interact with content that:</p>
+      <ul>
+        <li>Violates Discord's Terms of Service or Community Guidelines</li>
+        <li>Constitutes harassment, abuse, or threats toward others</li>
+        <li>Promotes hate speech, discrimination, or extremist content</li>
+        <li>Contains sexually explicit or violent material</li>
+        <li>Attempts to exploit, dox, or harm others in any way</li>
+        <li>Interferes with the Bot's operation or attempts to abuse its systems</li>
+        <li>Violates any applicable local, national, or international laws</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Subscriptions and Billing</h2>
+      <p>
+        SPRITEbot offers a paid Premium tier that unlocks additional features for an entire
+        Discord server. Subscriptions are purchased and managed through Discord's built-in
+        subscription system.
+      </p>
+      <ul>
+        <li>
+          All billing, payment processing, and refunds are handled by Discord. We do not directly
+          collect payment information.
+        </li>
+        <li>
+          Subscription terms, renewal, and cancellation follow
+          <a href="https://support.discord.com/hc/en-us/articles/4407269525911">Discord's subscription policies</a>.
+        </li>
+        <li>
+          Cancelling a subscription ends Premium access at the close of the current billing
+          period. No partial refunds are issued for unused time.
+        </li>
+        <li>
+          We reserve the right to change pricing with reasonable notice. Price changes take effect
+          at the start of your next billing period.
+        </li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Service Availability</h2>
+      <p>
+        SPRITEbot is provided on a best-effort basis. We do not guarantee any specific uptime,
+        availability, or response time. The Bot may be temporarily unavailable for maintenance,
+        updates, or reasons beyond our control.
+      </p>
+      <p>
+        In the event of extended outages affecting paid subscribers, we may offer service credits
+        or billing adjustments at our discretion, but we are not obligated to do so.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Enforcement</h2>
+      <p>
+        We reserve the right to suspend or permanently revoke access for users who violate these
+        Terms. This includes:
+      </p>
+      <ul>
+        <li>Blocking the user or associated account from accessing the Bot</li>
+        <li>Reporting misconduct to Discord Trust &amp; Safety</li>
+        <li>Revoking access without notice or refund where warranted</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Intellectual Property</h2>
+      <p>
+        You retain ownership of content you create through the Bot (characters, game
+        configurations, roleplay text). By using the Bot, you grant us a limited license to
+        store and process that content as needed for the Bot to function.
+      </p>
+      <p>
+        SPRITEbot's name, branding, and code remain our property.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Disclaimer</h2>
+      <p>
+        The Bot is provided "as is" and "as available" without warranties of any kind, express
+        or implied. We disclaim all warranties including merchantability, fitness for a
+        particular purpose, and non-infringement.
+      </p>
+      <p>
+        We are not responsible for user-submitted content, data loss resulting from service
+        interruptions, or the consequences of interactions initiated through the Bot.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by law, we are not liable for any indirect, incidental,
+        special, consequential, or punitive damages arising from your use of the Bot. Our total
+        liability for any claim related to the Bot is limited to the amount you paid us (if any)
+        in the twelve months preceding the claim.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes</h2>
+      <p>
+        We may update these Terms at any time. Material changes will be communicated through the
+        Bot's support channels or website. Continued use of the Bot after changes are posted
+        constitutes acceptance of the updated Terms.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact</h2>
+      <p>
+        For questions about these Terms, contact the SPRITEbot maintainer through the
+        <a href="https://discord.gg/clawd">support server</a> or the contact channels linked
+        from the Bot.
+      </p>
+    </section>
+  </div>
+</Base>
