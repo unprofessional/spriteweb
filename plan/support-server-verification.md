@@ -54,6 +54,16 @@ Users with neither status remain unverified in `#vestibule`.
 - If they match, assign roles silently (no DM, no channel message)
 - If they don't match, do nothing — they land in `#vestibule` naturally
 
+### `/support` slash command (global)
+
+- **Registered in:** All servers (global command)
+- **Permission:** Anyone can use it
+- **Behavior:**
+  1. Reply with an ephemeral message containing the support server invite link
+  2. Example response: "Need help or want to report a bug? Join the SPRITEbot support server: https://discord.gg/eXktxzKxze"
+  3. Ephemeral so it doesn't clutter the channel
+- **Note:** This is a simple static response — no DB lookups, no logic. Just returns the invite URL.
+
 ### `#vestibule` channel setup
 
 - Visible to `@everyone` (no role required)
