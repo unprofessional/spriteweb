@@ -1,78 +1,39 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const dataItems = [
-  'Discord server, channel, message, user, and role IDs needed to connect commands to the right place.',
-  'Game, character, stat field, inventory, and thread-bump configuration created through bot commands.',
-  'Webhook message references used for in-character post editing and deletion.',
-  'Voice transcription session metadata and transcript files when a GM explicitly starts transcription.',
-];
-
-const privacyNotes = [
-  'SPRITEbot does not sell personal data.',
-  'SPRITEbot does not use stored campaign data for advertising.',
-  'Premium access is managed through Discord entitlements; this static website does not process payments.',
-];
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
 <Base title="Legal" description="SPRITEbot terms and privacy information.">
   <section class="page-hero legal-hero">
-    <p class="eyebrow">Terms & Privacy</p>
+    <p class="eyebrow">Legal</p>
     <h1>Terms & Privacy</h1>
     <p>
-      This is a practical placeholder for the public site. A final legal review should happen
-      before broader public release.
+      Legal policies governing your use of SPRITEbot and how we handle your data.
     </p>
   </section>
 
   <div class="legal-content">
     <section class="policy-section">
-      <h2>What SPRITEbot Stores</h2>
+      <h2>Terms of Service</h2>
       <p>
-        SPRITEbot stores only the information needed to run tabletop campaigns inside Discord.
-        That can include:
+        Rules and conditions for using SPRITEbot, including acceptable use, subscriptions,
+        service availability, and liability.
       </p>
-      <ul>
-        {dataItems.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="policy-section">
-      <h2>How Data Is Used</h2>
       <p>
-        Stored data is used to operate bot features: joining games, managing characters, proxying
-        roleplay posts, rolling dice, tracking inventory, bumping threads, and producing
-        GM-requested transcription output.
-      </p>
-      <ul>
-        {privacyNotes.map((item) => <li>{item}</li>)}
-      </ul>
-    </section>
-
-    <section class="policy-section">
-      <h2>Retention</h2>
-      <p>
-        Deleted game and character data may be retained during a soft-delete recovery window before
-        permanent deletion. Transcripts are posted into the configured Discord text channel when a
-        GM stops transcription; server admins should manage those files according to their own
-        server policies.
+        <a class="button secondary" href={`${basePath}terms/`}>Read Terms of Service</a>
       </p>
     </section>
 
     <section class="policy-section">
-      <h2>Server Admin Responsibility</h2>
+      <h2>Privacy Policy</h2>
       <p>
-        Server admins and GMs decide whether SPRITEbot belongs in their Discord server, which games
-        are published, who can participate, and whether features such as transcription or thread
-        bumping should be used.
+        What data SPRITEbot collects, how it is used, your rights, and how to request deletion.
       </p>
-    </section>
-
-    <section class="policy-section">
-      <h2>Contact</h2>
       <p>
-        Until a dedicated support address is published, contact the SPRITEbot maintainer through the
-        project owner channels linked from the bot or repository.
+        <a class="button secondary" href={`${basePath}privacy/`}>Read Privacy Policy</a>
       </p>
     </section>
   </div>
