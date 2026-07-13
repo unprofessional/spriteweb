@@ -13,10 +13,12 @@ const pageTitle = title === 'SPRITEbot' ? title : `${title} | SPRITEbot`;
 const siteUrl = Astro.site ?? new URL('https://unprofessional.github.io');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const imageUrl = new URL(`${basePath}assets/sprite-mark.svg`, siteUrl).toString();
+const supportUrl = 'https://discord.gg/eXktxzKxze';
 const navItems = [
   { href: `${basePath}`, label: 'Home' },
   { href: `${basePath}pricing/`, label: 'Pricing' },
   { href: `${basePath}guide/`, label: 'Guide' },
+  { href: supportUrl, label: 'Support' },
 ];
 ---
 
