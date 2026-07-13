@@ -196,6 +196,13 @@ h3 {
   font-weight: 800;
 }
 
+.button-icon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+
 .button.primary {
   background: linear-gradient(135deg, var(--cyan), var(--green));
   color: #10111c;
