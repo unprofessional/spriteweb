@@ -1,0 +1,193 @@
+---
+import Base from '../layouts/Base.astro';
+
+const effectiveDate = 'July 13, 2026';
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+---
+
+<Base title="Privacy Policy" description="SPRITEbot privacy policy.">
+  <section class="page-hero legal-hero">
+    <p class="eyebrow">Privacy Policy</p>
+    <h1>Privacy Policy</h1>
+    <p>Effective {effectiveDate}</p>
+  </section>
+
+  <div class="legal-content">
+    <section class="policy-section">
+      <h2>Overview</h2>
+      <p>
+        This Privacy Policy explains what data SPRITEbot ("the Bot") collects, how it is used,
+        and how you can manage or delete it. By using the Bot, you agree to the practices
+        described here.
+      </p>
+      <p>
+        SPRITEbot operates on the Discord platform. This policy covers data handled by the Bot
+        itself. For information about how Discord handles your data, see the
+        <a href="https://discord.com/privacy">Discord Privacy Policy</a>.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data We Collect</h2>
+      <p>
+        SPRITEbot collects and stores only the data necessary to provide its features. This
+        includes:
+      </p>
+      <ul>
+        <li>
+          <strong>Discord identifiers:</strong> User IDs, server (guild) IDs, channel IDs, role
+          IDs, and message IDs used to connect commands and features to the correct context.
+        </li>
+        <li>
+          <strong>Game and campaign data:</strong> Game names, descriptions, stat templates,
+          character sheets, inventory items, and other configuration created through bot commands.
+        </li>
+        <li>
+          <strong>Roleplay content:</strong> In-character and out-of-character message text
+          submitted through <code>/ic</code> and <code>/ooc</code> commands, along with webhook
+          message references used for editing and deletion.
+        </li>
+        <li>
+          <strong>Thread bump configuration:</strong> Channel and thread references and scheduling
+          preferences for automatic thread bumping.
+        </li>
+        <li>
+          <strong>Transcription data:</strong> When a GM explicitly starts a voice transcription
+          session, the Bot stores session metadata and generated transcript files.
+        </li>
+        <li>
+          <strong>Subscription status:</strong> Discord subscription identifiers used to
+          determine whether a server has Premium access. We do not store payment details.
+        </li>
+      </ul>
+      <p>
+        We do not collect message content from general server chat. The Bot only processes
+        content explicitly submitted through its commands and interactions.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>How We Use Your Data</h2>
+      <p>Collected data is used solely to operate SPRITEbot's features:</p>
+      <ul>
+        <li>Running campaigns, managing characters, and processing game commands</li>
+        <li>Proxying in-character roleplay messages via webhooks</li>
+        <li>Tracking inventory and character stats</li>
+        <li>Scheduling and executing thread bumps</li>
+        <li>Producing GM-requested voice transcription output</li>
+        <li>Determining subscription and feature access</li>
+        <li>Diagnosing errors and improving Bot reliability</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>What We Don't Do</h2>
+      <ul>
+        <li>We do not sell, rent, or share your data with third parties.</li>
+        <li>We do not use your data for advertising, profiling, or behavioral targeting.</li>
+        <li>We do not disclose data to data brokers, ad networks, or monetization services.</li>
+        <li>We do not use message content or API data to train machine learning or AI models.</li>
+        <li>We do not mine or scrape Discord data beyond what is needed for Bot functionality.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Sharing</h2>
+      <p>
+        We do not share your data with third parties except in the following circumstances:
+      </p>
+      <ul>
+        <li>When required by law, legal process, or government request</li>
+        <li>When you explicitly direct us to share data (for example, posting a character sheet to a channel)</li>
+        <li>With service providers who help us operate the Bot, bound by confidentiality obligations</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Retention and Deletion</h2>
+      <p>
+        Data is retained only as long as necessary to provide the Bot's features. When data is
+        no longer needed, it is deleted.
+      </p>
+      <ul>
+        <li>
+          Deleted game and character data may be held during a soft-delete recovery window before
+          permanent removal.
+        </li>
+        <li>
+          Transcripts are posted into the configured Discord text channel when a GM stops
+          transcription. Server admins manage those files per their own server policies.
+        </li>
+        <li>
+          When the Bot is removed from a server or a subscription ends, associated data will be
+          deleted after a reasonable retention period.
+        </li>
+      </ul>
+      <p>
+        You can request deletion of your data at any time. See the Contact section below for how
+        to reach us. We will process deletion requests promptly in accordance with Discord's
+        Developer Policy and applicable privacy laws.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Rights</h2>
+      <p>
+        Depending on your location, you may have rights under privacy laws such as the GDPR,
+        UK GDPR, CCPA/CPRA, or LGPD. These may include the right to:
+      </p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Request correction of inaccurate data</li>
+        <li>Request deletion of your data</li>
+        <li>Object to or restrict certain processing</li>
+        <li>Receive your data in a portable format</li>
+      </ul>
+      <p>
+        To exercise any of these rights, contact us using the methods listed in the Contact
+        section. We will respond within the timeframes required by applicable law.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Security</h2>
+      <p>
+        We use commercially reasonable measures to protect your data, including encryption at
+        rest and access controls. However, no system is perfectly secure. If we become aware of
+        unauthorized access to your data, we will notify affected users and Discord as required
+        by applicable law.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Children's Privacy</h2>
+      <p>
+        SPRITEbot is not directed at children under 13 (or the minimum age required in your
+        jurisdiction). We do not knowingly collect data from users below this age. If we learn
+        that we have collected data from a child under the applicable minimum age, we will
+        delete it promptly.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes</h2>
+      <p>
+        This Privacy Policy may be updated periodically. Material changes will be communicated
+        through the Bot's support channels or website. Continued use of the Bot after changes
+        are posted constitutes acceptance of the updated policy.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact</h2>
+      <p>
+        To request data deletion, ask questions about this policy, or exercise your privacy
+        rights, contact the SPRITEbot maintainer through the
+        <a href="https://discord.gg/clawd">support server</a> or the contact channels linked
+        from the Bot.
+      </p>
+    </section>
+  </div>
+</Base>
