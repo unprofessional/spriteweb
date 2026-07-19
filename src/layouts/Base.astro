@@ -3,7 +3,7 @@ import '../styles/global.css';
 
 const {
   title = 'SPRITEbot',
-  description = 'Tabletop RPG campaigns, right inside Discord.',
+  description = 'Run your whole tabletop RPG campaign where your group already talks. Characters, dice, roleplay, inventory, and voice transcripts, all inside Discord.',
 } = Astro.props;
 
 const basePath = import.meta.env.BASE_URL.endsWith('/')
@@ -65,7 +65,7 @@ const navItems = [
         <slot />
       </main>
       <footer class="site-footer">
-        <p>Built for Discord tables that like their campaign tools close at hand.</p>
+        <p>Built by a GM, for GMs who'd rather run a session than manage a tech stack.</p>
         <a href={`${basePath}terms/`}>Terms</a>
         <span>&middot;</span>
         <a href={`${basePath}privacy/`}>Privacy</a>
