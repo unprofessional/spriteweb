@@ -290,6 +290,33 @@ h3 {
   text-align: center;
 }
 
+.pitch-section {
+  padding: 32px 0 64px;
+}
+
+.pitch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pitch-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: rgba(32, 34, 53, 0.74);
+}
+
+.pitch-card h3 {
+  font-size: 1.1rem;
+}
+
+.pitch-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .feature-section {
   padding: 32px 0 88px;
 }
@@ -787,6 +814,10 @@ code {
   }
 
   .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pitch-grid {
     grid-template-columns: 1fr;
   }
 
