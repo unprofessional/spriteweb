@@ -11,46 +11,47 @@ const basePath = import.meta.env.BASE_URL.endsWith('/')
 const features = [
   {
     title: 'Campaign Management',
-    copy: 'Create games, define custom stat templates, and publish campaigns when players are ready to join.',
+    copy: 'Set up a game, define your own stat templates, and open the doors when your table is ready. No external site, no spreadsheet, no copy-paste.',
   },
   {
     title: 'Character Sheets',
-    copy: 'Guide players through character creation with custom fields and public or private visibility.',
+    copy: 'Players build characters through an interactive draft with your custom fields. View, edit, and share sheets without ever leaving the server.',
   },
   {
     title: 'In-Character Roleplay',
-    copy: 'Use webhook-powered `/ic` and `/ooc` posts that support long messages, edits, and tidy character voices.',
+    copy: 'Toggle `/ic` and your messages post as your character, complete with their name and avatar. Supports long posts, edits, and deletes.',
   },
   {
     title: 'Inventory Tracking',
-    copy: 'Manage per-character items with campaign-specific fields, quantities, and clean sheet summaries.',
+    copy: 'Per-character items with types, quantities, equip states, and clean summaries. No more "wait, what was I carrying?"',
   },
   {
     title: 'Dice Rolling',
-    copy: 'Roll cryptographic dice from `1d2` through `15d999`, right where the table is already talking.',
+    copy: 'Cryptographic dice from `1d2` to `15d999`. No extra bot needed, no tab switching. Roll where you talk.',
   },
   {
     title: 'Thread Bumping',
-    copy: 'Keep play-by-post channels alive with scheduled bumps for registered campaign threads.',
+    copy: 'Play-by-post threads archive when Discord decides they should. SPRITEbot keeps them alive on your schedule.',
   },
   {
     title: 'Voice Transcription',
-    copy: 'Let GMs capture a session in a voice channel and post a raw timestamped transcript when it ends.',
+    copy: 'Record a voice session and get a timestamped transcript posted to any text channel when you wrap up. Never lose a session to bad notes again.',
   },
 ];
 ---
 
 <Base
   title="SPRITEbot"
-  description="Run lightweight tabletop RPG campaigns with character sheets, dice, inventory, and in-character Discord posting."
+  description="Your whole tabletop RPG campaign inside Discord. Character sheets, dice, roleplay proxying, inventory, voice transcripts, and thread management for $3.99/mo, entire server included."
 >
   <section class="hero">
     <div class="hero-content">
       <p class="eyebrow">Discord-native campaign tools</p>
-      <h1>Tabletop RPG campaigns, right inside Discord.</h1>
+      <h1>Your whole campaign, right where your table already talks.</h1>
       <p class="hero-copy">
-        SPRITEbot helps GMs and players manage games, characters, roleplay posts, inventory, dice,
-        voice transcripts, and thread upkeep without dragging the table into another app.
+        Character sheets in one app, dice in another, session notes in a third. SPRITEbot puts
+        campaigns, characters, roleplay, inventory, dice, and voice transcripts in the server
+        where your group actually hangs out.
       </p>
       <div class="hero-actions" aria-label="Primary actions">
         <a class="button primary" href={inviteUrl}><svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>Add to Discord</a>
@@ -80,10 +81,31 @@ const features = [
     </div>
   </section>
 
+  <section class="pitch-section">
+    <div class="section-heading">
+      <p class="eyebrow">Why SPRITEbot</p>
+      <h2>Built by a GM who got tired of juggling five apps.</h2>
+    </div>
+    <div class="pitch-grid">
+      <article class="pitch-card">
+        <h3>One subscription, whole server</h3>
+        <p>$3.99/mo covers every player and GM in the server. No per-seat pricing, no "invite 3 friends to unlock" gates.</p>
+      </article>
+      <article class="pitch-card">
+        <h3>No account walls</h3>
+        <p>Players don't sign up for anything. If they're in the Discord server, they're in the game. The bot handles the rest.</p>
+      </article>
+      <article class="pitch-card">
+        <h3>System-agnostic</h3>
+        <p>Define your own stat templates. D&amp;D, Pathfinder, homebrew, whatever your table runs. SPRITEbot doesn't care about your ruleset, it cares about your workflow.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="feature-section" aria-labelledby="features-heading">
     <div class="section-heading">
       <p class="eyebrow">What it handles</p>
-      <h2 id="features-heading">A campaign kit that lives where play happens.</h2>
+      <h2 id="features-heading">Everything your table needs, nothing it doesn't.</h2>
     </div>
     <div class="feature-grid">
       {
